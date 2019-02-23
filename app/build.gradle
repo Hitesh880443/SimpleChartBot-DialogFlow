@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.hitesh.hitchat"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.support.app_compat
+    implementation deps.support.constraint
+    testImplementation deps.test.junit
+    testImplementation deps.test.mock
+    androidTestImplementation deps.test.test_runner
+    androidTestImplementation deps.test.espresso
+    implementation deps.support.recyclerview
+    implementation deps.firebase.database
+    implementation deps.firebase.ui
+    implementation deps.dialogflow.sdk
+    implementation deps.dialogflow.lib
+//    implementation 'com.google.cloud:google-cloud-dialogflow:0.80.1-alpha'
+
+}
+apply plugin: 'com.google.gms.google-services'
